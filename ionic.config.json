@@ -1,0 +1,7 @@
+{
+  "name": "jjbApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

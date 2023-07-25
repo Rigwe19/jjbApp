@@ -1,0 +1,25 @@
+@media print {
+  
+  html:not(.hydrated) body {
+    display: block !important;
+  }
+  html {
+    color: black;
+  }
+    
+}/* 
+.printSection{
+    color: inherit;
+    border: inherit;
+} */
+.black {
+    color: black;
+}
+.stripe:nth-child(odd) {
+    --tw-bg-opacity: 1;
+    background-color: rgba(126, 218, 141, 0.274);
+}
+.bdcolor {
+    border-color: var(--ion-border-color, #b4b4b4);
+}
+  

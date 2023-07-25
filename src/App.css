@@ -1,0 +1,84 @@
+.vertical {
+    @apply rotate-[180deg] sm:rotate-0 [writing-mode:vertical-rl] sm:[writing-mode:horizontal-tb];
+    /* writing-mode: ; */
+}
+#fullHeight::part(native) {
+    height: 100%;
+}
+ion-segment-button {
+    /* --background-checked: var(--ion-color-green); */
+    --color-checked: var(--ion-color-green);
+}
+ion-card {
+    overflow: auto;
+}
+.card-footer {
+    position: absolute;
+    bottom: -44px;
+    width: 100%;
+}
+.has-card-footer {
+    position: relative;
+    padding-bottom: 15px;
+}
+.action-sheet-button.action-sheet-selected {
+    color: var(--ion-color-success);
+}
+.action-sheet-button.sc-ion-action-sheet-md:hover,
+.action-sheet-button.sc-ion-action-sheet-ios:hover {
+    color: var(--ion-color-success);
+  }
+
+  .ledger-tb {
+    @apply w-full border-collapse;
+  }
+  .ledger-tb th, .ledger-tb td {
+    @apply p-2 border;
+  }
+  table.ledger-tb {
+    page-break-inside: always;
+  }
+  table.ledger-tb tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  table.ledger-tb thead {
+    display: table-header-group;
+  }
+  table.ledger-tb tfoot {
+    display: table-footer-group;
+  }
+  /* .segment-button-checked {
+    --background-checked: var(--ion-background, --ion-color-green-contrast);
+  } */
+  .tab-selected {
+    --color-selected: var(--ion-tab-bar-color-selected, var(--ion-color-green, #3880ff));
+  }
+  body {
+    background-color: var(--ion-background-color, #fff);
+  }
+
+  @media all {
+    .page-break {
+      display: none;
+    }
+  }
+  @media print {
+    html, body {
+      height: initial !important;
+      overflow: initial !important;
+      -webkit-print-color-adjust: exact;
+    }
+    .page-break {
+      margin-top: 1rem;
+      display: block;
+      page-break-before: auto;
+    }
+  }
+  @page {
+    size: auto;
+    margin: 20mm;
+  }
+  body:not(.dark) .item-fill-solid::part(native) {
+      background-color: #dff7e2
+  }

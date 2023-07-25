@@ -1,0 +1,6 @@
+{
+	"appId": "com.reinhard.jjb",
+	"appName": "jjb Management",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
