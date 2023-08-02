@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JJB Foods Api Documentation</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/sidebars.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #green {
+            height: 100%;
+            background: green;
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-lg-9 col-12">
+                <main>
+                    <div>
+                        <h2>Login</h2>
+                        <p>
+                            to use this api we need to get an auth token from the api and
+                            this can be achieved by login into the system
+                        </p>
+                        <p>
+                            from the app we use the login route from the ionic HTTP library
+                        </p>
+                        <code> url: href + "/api/login", </code>
+                        <h4>Response</h4>
+                        <p>
+                            On successful login it returns an object
+                            <code>response.data.user</code>
+                        </p>
+                        <pre>
+                            <code>
+{
+    employee_id: number,
+    department_id: number,
+    name: string,
+    passport: string,
+    position: string,
+    shift: string,
+    department: string,
+    created_at: string,
+    brand: string,
+    id: number,
+    role: number,
+    token: string,
+    updated_at: string,
+    username: string,
+    location_id: number,
+    setOpening: boolean,
+    setClosing: boolean,
+    isLoggedIn: boolean,
+}
+                            </code>
+                        </pre>
+                        <p>this value would be save in state for future use</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sidebars.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>

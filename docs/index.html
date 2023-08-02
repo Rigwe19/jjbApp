@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJB Foods Api Documentation</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/sidebars.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-lg-9 col-12">
+                <main>
+                    <div>
+                        <h2>Getting Started</h2>
+                        <p>Open your favourite command prompt and run <code>$git clone https://github.com/Rigwe19/jjbApp.git</code> to clone this repository</p>
+                        <p>Then run <br>
+                            <code>$npm install</code><br>
+                            <code>$ionic serve --external</code>
+                        </p>
+                        <h2>API Address</h2>
+                        <p>
+                            The api domain is already stored in state so all you will need to do is to get it with
+                            recoil
+                        </p>
+                        <code>const href = useRecoilValue<string>(urlAtom);</code>
+                        <h2>Using the Capacitor HTTP request plugin</h2>
+                        <p>Request are made using the capacitor HTTP plugin which can be imported</p>
+                        <code>import { Http } from '@capacitor-community/http';</code>
+
+                        <pre class="pre-scrollable bg-body-tertiary">
+                            <code>
+Http.request({
+    method: "POST",
+    url: href + "/api/login",
+    headers: {
+        'Content-Type': 'application/json',
+        'Data-Type': 'json',
+        'accept': 'application/json'
+    },
+    data: data
+    }).then((response) => {
+        if (response.data.success) {
+            // do something
+        } else if (response.status === 422) {
+            // error 422 are validation errors
+        }else{
+            // return response.data.error
+        }
+    }).finally(() => {
+        // run another code
+    });
+                            </code>
+                        </pre>
+
+                    </div>
+                </main>
+
+            </div>
+
+        </div>
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/all.min.js"></script>
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <script src="./js/sidebars.js"></script>
+</body>
+
+</html>

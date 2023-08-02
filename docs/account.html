@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJB Foods Api Documentation</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/sidebars.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <style>
+
+        #green {
+            height: 100%;
+            background: green;
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-lg-9 col-12">
+                <main>
+                    <p>This page document the accounting endpoints </p>
+                    <section id="dashboard">
+                        <h3>Dashboard</h3>
+                        <h5>Get Dashboard | GET</h5>
+                        <p>Dashboard data can been retrieved with the following endpoint</p>
+                        <code>/api/account/get/dashboard</code>
+                        <p>it returns the following</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th class="w-66">Description</th>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>success</td>
+                                        <td>returns a boolean depending on if the API call is successful or not</td>
+                                        <td><code>boolean</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>dashboard</td>
+                                        <td>return an object containing dashboard data</td>
+                                        <td><code>{ available: number; payment: number; sales: number; expenses: number; purchase: number; total: number; }</code>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h5>Search Dashboard | POST</h5>
+                        <p>Dashboard data can been search with the following endpoint, it returns the same data as get
+                            dashboard</p>
+                        <code>/api/search/account/dashboard</code>
+                        <p>the post request accept the following request data</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Description</th>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>date</td>
+                                        <td>the date for the query to search</td>
+                                        <td><code>2023-07-29T09:55:15.110Z</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>type</td>
+                                        <td>the type of interval</td>
+                                        <td><code>{1: daily, 2: weekly, 3: monthly, 4: yearly, 5: custom}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>start | optional</td>
+                                        <td>when the type is custom the start date should be supplied</td>
+                                        <td><code>2023-07-29T09:55:15.110Z</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>end | optional</td>
+                                        <td>when the type is custom the end date should be supplied</td>
+                                        <td><code>2023-07-29T09:55:15.110Z</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section id="sales">
+                        <h3>Sales</h3>
+                        <h5>Get Sales | GET</h5>
+                        <p>Sales can been retrieved with the following endpoint</p>
+                        <code>/api/account/get/sales</code>
+                        <p>it returns the following</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th class="w-75">Description</th>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>success</td>
+                                        <td>returns a boolean depending on if the API call is successful or not</td>
+                                        <td><code>boolean</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>expenses</td>
+                                        <td>return an array of object containing all the data related to expenses</td>
+                                        <td>
+                                            <code>{ id: number; name: string; type: string; purchase: 0|1; }[]</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>payment_mode</td>
+                                        <td>return an array of object of mode of payment</td>
+                                        <td>
+                                            <code>{ id: number; mode: string; balance: number; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>brands</td>
+                                        <td>return list of available brands</td>
+                                        <td><code>{ id: number; name: string; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>units</td>
+                                        <td>return list of SI units for unit conversions</td>
+                                        <td><code>{ id: number; name: string; unit: string; // SI unitbase: string; // lowest form for the SI unit}[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>suppliers</td>
+                                        <td>returns a list of suppliers</td>
+                                        <td><code>{ id: number; name: string; code: string; phone: string; address: string; location_id: number; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>locations</td>
+                                        <td>returns a list of locations</td>
+                                        <td><code>{ id: number; name: string; state_id: number; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>accounts</td>
+                                        <td>returns a list of accounts</td>
+                                        <td><code> { id: number; name: string; logo: string; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>purchases</td>
+                                        <td>returns a list of purchases</td>
+                                        <td><code> { id: number; date: string; location_id: number; purchase_id: number; expense_id: number; supplier_id: number; quantity: number;
+                                            unit_weight: number; unit_id: number; unit_price: number; amount: number; paid: number; total_weight: number; brand_id: number; mode_id: number;
+                                            reason: string|null; bank_id: number; delivered: 0|1; name: string; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>banks</td>
+                                        <td>returns a list of banks</td>
+                                        <td><code> { id: number; bank_name_id: number; acc_number: string; acc_name: string; bank: string; acc_balance: number; logo: string; }[];</code>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section id="expenses">
+                        <h3>Expenses</h3>
+                        <h5>Get Expense | GET</h5>
+                        <p>Expenses can been retrieved with the following endpoint</p>
+                        <code>/api/account/get/expenses</code>
+                        <p>it returns the following</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th class="w-75">Description</th>
+                                        <th>Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>success</td>
+                                        <td>returns a boolean depending on if the API call is successful or not</td>
+                                        <td><code>boolean</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>expenses</td>
+                                        <td>return an array of object containing all the data related to expenses</td>
+                                        <td>
+                                            <code>{ id: number; name: string; type: string; purchase: 0|1; }[]</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>payment_mode</td>
+                                        <td>return an array of object of mode of payment</td>
+                                        <td>
+                                            <code>{ id: number; mode: string; balance: number; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>brands</td>
+                                        <td>return list of available brands</td>
+                                        <td><code>{ id: number; name: string; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>units</td>
+                                        <td>return list of SI units for unit conversions</td>
+                                        <td><code>{ id: number; name: string; unit: string; // SI unitbase: string; // lowest form for the SI unit}[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>suppliers</td>
+                                        <td>returns a list of suppliers</td>
+                                        <td><code>{ id: number; name: string; code: string; phone: string; address: string; location_id: number; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>locations</td>
+                                        <td>returns a list of locations</td>
+                                        <td><code>{ id: number; name: string; state_id: number; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>accounts</td>
+                                        <td>returns a list of accounts</td>
+                                        <td><code> { id: number; name: string; logo: string; }[];</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>purchases</td>
+                                        <td>returns a list of purchases</td>
+                                        <td><code> { id: number; date: string; location_id: number; purchase_id: number; expense_id: number; supplier_id: number; quantity: number;
+                                            unit_weight: number; unit_id: number; unit_price: number; amount: number; paid: number; total_weight: number; brand_id: number; mode_id: number;
+                                            reason: string|null; bank_id: number; delivered: 0|1; name: string; }[];</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>banks</td>
+                                        <td>returns a list of banks</td>
+                                        <td><code> { id: number; bank_name_id: number; acc_number: string; acc_name: string; bank: string; acc_balance: number; logo: string; }[];</code>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sidebars.js"></script>
+    <script>
+        // $('.row').remove('#sidebar')
+
+    </script>
+</body>
+
+</html>
